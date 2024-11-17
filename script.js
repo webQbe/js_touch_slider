@@ -5,7 +5,7 @@ const slider = document.querySelector('.slider-container'),
 slides = Array.from(document.querySelectorAll('.slide')) 
 
 // Globals
-let isDragging = false, // Mouse-down & moving
+let mouseDown = false, 
     startPos = 0, // Position clicked
     currentTranslate = 0, // TranslateX(value)
     prevTranslate = 0, 
@@ -13,7 +13,7 @@ let isDragging = false, // Mouse-down & moving
     currentIndex = 0 // Current slide
 
 // Loop Through Slides Array
-slides.forEach((slide, index) => {
+slides.forEach((slide, index) => { 
 
     // Prevent image dragging effect
     const slideImage = slide.querySelector('img');
@@ -45,6 +45,7 @@ function touchStart(index){
     // Return func
     return function(event){
 
+        mouseDown = true;
         console.log('start');
 
     }
@@ -52,12 +53,18 @@ function touchStart(index){
 
 function touchEnd(){
 
+    mouseDown = false;
     console.log('end');
 
 }
 
 function touchMove(){
 
-    console.log('move');
+    // Skip if MouseUp
+    if(mouseDown){
+
+        console.log('move');
+
+    }
 
 }
