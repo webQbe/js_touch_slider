@@ -51,3 +51,10 @@ html, body{
 .slide h4{
     font-size: 1.3rem;
 }
+
+.btn{
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 1.5rem; /* T-B & L-R */
+}
