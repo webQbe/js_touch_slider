@@ -21,7 +21,7 @@ slides.forEach((slide, index) => {
 
     // Touch Events
     // Listen for touch-down event on current slide
-    slide.addEventListener('touchstart', touchStart(index));
+    slide.addEventListener('touchstart', touchStart(index)); // Call func with index
     //  Listen for touch-release event
     slide.addEventListener('touchend', touchEnd);
     //  Listen for touch-moving event
@@ -29,7 +29,7 @@ slides.forEach((slide, index) => {
 
      // Mouse Events
     // Listen for click-down event on current slide
-    slide.addEventListener('mousedown', touchStart(index))
+    slide.addEventListener('mousedown', touchStart(index)) // Call func with index
     // Listen for mouse up event
     slide.addEventListener('mouseup', touchEnd);
     // Listen for cursor leaving slide event
@@ -39,3 +39,25 @@ slides.forEach((slide, index) => {
 
 
 });
+
+function touchStart(index){
+
+    // Return func
+    return function(event){
+
+        console.log('start');
+
+    }
+}
+
+function touchEnd(){
+
+    console.log('end');
+
+}
+
+function touchMove(){
+
+    console.log('move');
+
+}
