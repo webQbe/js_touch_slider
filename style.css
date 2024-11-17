@@ -58,3 +58,15 @@ html, body{
     text-decoration: none;
     padding: 1rem 1.5rem; /* T-B & L-R */
 }
+
+
+/* Change Cursor Icon on Click & Mouse-down */
+.grabbing{
+    cursor: grabbing;
+}
+
+/* Click & Mouse-down Style */
+.grabbing .slide img {
+    /* Make image smaller */
+    transform: scale(0.9);
+}
