@@ -1,0 +1,20 @@
+/* IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* PAGE RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+    color: #fff;
+    line-height: 1.7;
+}
+
