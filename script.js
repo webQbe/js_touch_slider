@@ -19,5 +19,23 @@ slides.forEach((slide, index) => {
     const slideImage = slide.querySelector('img');
     slideImage.addEventListener('dragstart', (e) => e.preventDefault());
 
+    // Touch Events
+    // Listen for touch-down event on current slide
+    slide.addEventListener('touchstart', touchStart(index));
+    //  Listen for touch-release event
+    slide.addEventListener('touchend', touchEnd);
+    //  Listen for touch-moving event
+    slide.addEventListener('touchmove', touchMove);
+
+     // Mouse Events
+    // Listen for click-down event on current slide
+    slide.addEventListener('mousedown', touchStart(index))
+    // Listen for mouse up event
+    slide.addEventListener('mouseup', touchEnd);
+    // Listen for cursor leaving slide event
+    slide.addEventListener('mouseleave', touchEnd);
+    //  Listen for cursor moving around event
+    slide.addEventListener('mousemove', touchMove);
+
 
 });
