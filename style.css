@@ -26,3 +26,28 @@ html, body{
     transition: transform 0.3s ease-out; /* Make smooth transition */
     cursor: grab; /* mouse-down = grabbing */
 }
+
+.slide{
+    max-height: 100vh;
+    width: 100vw;
+    display: flex; /* Align elements */
+    flex-direction: column; /* Align vertically */
+    align-items: center; /* center horizontally */
+    justify-content: center; /* center vertically */
+    padding: 1rem;
+    user-select: none; /* Disable selecting with  mouse-down */
+}
+
+.slide img{
+    max-width: 100%;
+    max-height: 60%;
+}
+
+.slide h2{
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.slide h4{
+    font-size: 1.3rem;
+}
