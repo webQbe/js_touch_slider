@@ -12,9 +12,17 @@ html, body{
     font-family: 'Open Sans', sans-serif;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; /* no scrollbars */
     background-color: #333;
     color: #fff;
     line-height: 1.7;
 }
 
+.slider-container{
+    height: 100vh;
+    display: inline-flex; /* Arrange slides in a horizontally */
+    overflow: hidden;
+    transform: translateX(0); /* Push container left(-200) or right(+200); default 0*/
+    transition: transform 0.3s ease-out; /* Make smooth transition */
+    cursor: grab; /* mouse-down = grabbing */
+}
