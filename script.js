@@ -66,6 +66,10 @@ function touchStart(index){
         // Start the animation loop
         // passing reference to animation()
         animationID = requestAnimationFrame(animation);
+
+        // Add grabbing class
+        slider.classList.add('grabbing');
+        /* Update cursor and scales down image */
     }
 }
 
@@ -77,6 +81,9 @@ function touchEnd(){
     cancelAnimationFrame(animationID);
 
     /* Without cancelAnimationFrame, the animation() function might keep running even when the interaction has ended, wasting resources and potentially causing unintended behavior. */
+
+    // Remove .grabbing class
+    slider.classList.remove('grabbing'); 
 
 }
 
