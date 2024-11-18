@@ -40,6 +40,7 @@ slides.forEach((slide, index) => {
 
 });
 
+// Disable Context Menu
 // Listen for context menu opening (right-click)
 window.oncontextmenu = function (event) {
 
@@ -57,6 +58,11 @@ function touchStart(index){
 
     // Return func
     return function(event){
+
+        currentIndex = index; // Set current index
+        
+        startPos = getPositionX(event); // Get start X position
+        console.log(startPos);
 
         mouseDown = true;
         console.log('start');
@@ -79,5 +85,13 @@ function touchMove(){
         console.log('move');
 
     }
+
+}
+
+function getPositionX(event){
+
+    return event.type.includes('mouse') // Get Mouse Events
+            ? event.pageX // If true, Get click X position
+            : event.touches[0].clientX; // Else, Get to touch X position
 
 }
