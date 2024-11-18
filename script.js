@@ -40,6 +40,19 @@ slides.forEach((slide, index) => {
 
 });
 
+// Listen for context menu opening (right-click)
+window.oncontextmenu = function (event) {
+
+    event.preventDefault(); // stops the browser from opening the context menu
+
+    // Stops right-click from propagating to other elements
+    // in the DOM that might also be listening
+    event.stopPropagation();
+
+    return false; // an older way of preventing default actions in JavaScript. 
+    // In some older browsers, it served as a safeguard.
+}
+
 function touchStart(index){
 
     // Return func
