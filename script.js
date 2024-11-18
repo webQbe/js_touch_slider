@@ -62,6 +62,10 @@ function touchStart(index){
         currentIndex = index; // Set current index
         startPos = getPositionX(event); // Get start X position
         mouseDown = true;
+
+        // Start the animation loop
+        // passing reference to animation()
+        animationID = requestAnimationFrame(animation);
     }
 }
 
