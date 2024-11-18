@@ -73,6 +73,11 @@ function touchEnd(){
 
     mouseDown = false;
 
+    // Stop the animation loop.
+    cancelAnimationFrame(animationID);
+
+    /* Without cancelAnimationFrame, the animation() function might keep running even when the interaction has ended, wasting resources and potentially causing unintended behavior. */
+
 }
 
 // Handle movement of slider
