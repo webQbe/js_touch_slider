@@ -103,3 +103,39 @@ function getPositionX(event){
             : event.touches[0].clientX; // Else, Get to touch X position
 
 }
+
+
+
+function animation() {
+
+    // Update the slider's position based on currentTranslate
+    setSliderPosition();
+
+    /* Calling setSliderPosition() to update the slider's position visually. */
+
+    // Continue the animation loop if mouseDown is still true
+    if (mouseDown) requestAnimationFrame(animation); // callback animation()
+
+    /*  requestAnimationFrame() creates a loop that runs as long as
+        the user is interacting with the slider (mouseDown is true). 
+    
+        It stops when the user releases the mouse or lifts their finger (when touchEnd() sets mouseDown to false).*/
+
+}
+
+
+
+function setSliderPosition() {
+
+    // Apply a CSS transform to move the slider
+    slider.style.transform = `translateX(${currentTranslate}px)`;
+
+    /* How setSliderPosition() Works:
+
+        - Updates the transform property of the .slider-container element.
+
+        - Moves the slider horizontally (translateX) by the value of currentTranslate (in pixels).
+    
+    */
+
+}
