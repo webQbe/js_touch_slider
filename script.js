@@ -60,31 +60,39 @@ function touchStart(index){
     return function(event){
 
         currentIndex = index; // Set current index
-        
         startPos = getPositionX(event); // Get start X position
-        console.log(startPos);
-
         mouseDown = true;
-        console.log('start');
-
     }
 }
 
 function touchEnd(){
 
     mouseDown = false;
-    console.log('end');
 
 }
 
-function touchMove(){
+// Handle movement of slider
+function touchMove(event){
 
     // Skip if MouseUp
     if(mouseDown){
 
-        console.log('move');
+        // Get the current mouse or touch position
+        const currentPosition = getPositionX(event);
+
+        // currentTranslate determines current position of slider
+            // Calculate the new translation value:
+            // previous translation + movement since the starting position
+        currentTranslate = prevTranslate + currentPosition - startPos;
 
     }
+
+    /* How touchMove() Works:
+
+        - getPositionX(event) extracts the X-coordinate of the event (either pageX for mouse or clientX for touch).
+
+        - currentTranslate calculates the new slider position by adding the change in position (currentPosition - startPos) to the previous position (prevTranslate). 
+    */
 
 }
 
