@@ -105,6 +105,9 @@ function touchEnd(){
     /* If the swipe distance (movedBy) is less than the threshold (e.g., 100 pixels), 
       the currentIndex remains unchanged. */
 
+    // Position slider to display the correct slide
+    setPositionByIndex();
+
  
     // Remove .grabbing class
     slider.classList.remove('grabbing'); 
@@ -177,5 +180,45 @@ function setSliderPosition() {
         - Moves the slider horizontally (translateX) by the value of currentTranslate (in pixels).
     
     */
+
+}
+
+
+
+function setPositionByIndex(){
+
+    // Calculate exact horizontal offset for the slide to be centered
+    currentTranslate = currentIndex * -window.innerWidth; // Negative values shift slider left
+    /* window.innerWidth : Represents the width of the viewport.*/
+    
+    // Set previous position to current position
+    // ensures that future drag movements start from the new position
+    prevTranslate = currentTranslate;
+    
+    setSliderPosition(); // Apply new position to the slider
+    // This visually moves the slider to the calculated position
+
+
+    /* Example Scenarios:
+
+        Swipe Left (Next Slide):
+            currentIndex changes from 0 to 1.
+            currentTranslate = 1 * -window.innerWidth = -window.innerWidth.
+            The slider moves to the second slide.
+
+        Swipe Right (Previous Slide):
+            currentIndex changes from 2 to 1.
+            currentTranslate = 1 * -window.innerWidth = -window.innerWidth.
+            The slider moves back to the second slide. 
+            
+        
+        Effect of currentTranslate Negative Value:
+
+        By decreasing currentIndex, the negative multiplication 
+        (currentIndex * -window.innerWidth) results in a LESS negative currentTranslate.
+
+        This moves the slider rightward, bringing the previous slide into view. */
+
+    
 
 }
