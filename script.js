@@ -8,9 +8,9 @@ slides = Array.from(document.querySelectorAll('.slide'))
 let mouseDown = false, 
     startPos = 0, // Position clicked
     currentTranslate = 0, // TranslateX(value)
-    prevTranslate = 0, 
+    prevTranslate = 0,  // position of the slider before drag started
     animationID = 0, 
-    currentIndex = 0 // Current slide
+    currentIndex = 0 // currently displayed slide's index.
 
 // Loop Through Slides Array
 slides.forEach((slide, index) => { 
@@ -82,6 +82,30 @@ function touchEnd(){
 
     /* Without cancelAnimationFrame, the animation() function might keep running even when the interaction has ended, wasting resources and potentially causing unintended behavior. */
 
+    // Bringing in next and previous slides
+
+    // Get the horizontally dragged distance
+    const movedBy = currentTranslate - prevTranslate;
+
+    // If movedBy is negative &
+    // enough (< -100) to indicate a swipe to the left &
+    // currentIndex is NOT last slide's index 
+    if(movedBy < -100 && currentIndex < (slides.length - 1)) 
+        
+        currentIndex += 1;  // Move to the next slide
+
+    // If movedBy is positive &
+    // enough (> 100) to indicate a swipe to the right &
+    // currentIndex is NOT first slide's index
+    if(movedBy > 100 && currentIndex > 0) 
+       
+        currentIndex -= 1; // Move to the prev slide
+
+
+    /* If the swipe distance (movedBy) is less than the threshold (e.g., 100 pixels), 
+      the currentIndex remains unchanged. */
+
+ 
     // Remove .grabbing class
     slider.classList.remove('grabbing'); 
 
